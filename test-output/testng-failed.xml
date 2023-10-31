@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [SmokeSuite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.qa.listners.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="5" name="SmokeTests">
+    <classes>
+      <class name="com.qa.opencart.testcases.BaseTest"/>
+      <class name="com.qa.opencart.testcases.LoginPageTest"/>
+      <class name="com.qa.opencart.testcases.CustomerLoginPageTest"/>
+    </classes>
+  </test> <!-- SmokeTests -->
+  <test parallel="none" name="SmokeTests(failed)">
+    <classes>
+      <class name="com.qa.opencart.testcases.CustomerLoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifySignInButtonDisplay"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qa.opencart.testcases.CustomerLoginPageTest -->
+      <class name="com.qa.opencart.testcases.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qa.opencart.testcases.LoginPageTest -->
+    </classes>
+  </test> <!-- SmokeTests(failed) -->
+</suite> <!-- Failed suite [SmokeSuite] -->
